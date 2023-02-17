@@ -11,7 +11,7 @@ Readymade Django project, complete with:
 * Behave-django for BDD ✅
 * Model-Bakery ✅
 * Psycopg2 ✅
-* Gunicorn
+* Gunicorn ✅
 * Dockerfile
 * docker-compose
 * Nginx
