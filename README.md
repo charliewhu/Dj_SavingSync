@@ -8,7 +8,7 @@ Readymade Django project, complete with:
 * Folder restructure ✅
 * Static setup ✅
 * Environs[django] ✅
-* Behave-django for BDD
+* Behave-django for BDD ✅
 * Model-Bakery
 * Django-cors-headers
 * Pscopg2
