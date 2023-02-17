@@ -10,7 +10,6 @@ Readymade Django project, complete with:
 * Folder restructure
 * Environs[django]
 * Static setup
-* Django rest framework
 * Behave-django for BDD
 * Django-cors-headers
 * Factory boy
