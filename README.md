@@ -12,7 +12,7 @@ Readymade Django project, complete with:
 * Static setup
 * Behave-django for BDD
 * Django-cors-headers
-* Factory boy
+* Model-Bakery
 * Pscopg2
 * Gunicorn
 
