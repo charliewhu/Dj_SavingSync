@@ -19,7 +19,6 @@ env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -31,6 +30,11 @@ DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
 # which hosts can access the site
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=[""])
+
+# SECURITY WARNING: DO NOT USE IN PRODUCTION!
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = ['http://0.0.0.0']
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -85,7 +89,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": env.dj_db_url(
         "DATABASE_URL",
-        default="sqlite:///db.sqlite3",
+        default="postgres://postgres@db/postgres",
     )
 }
 
