@@ -1,13 +1,13 @@
 # Django Project Template
 
 Readymade Django project, complete with:
-* Poetry
-* Gitignore
-* Github Actions
-* Custom User model
+* Poetry ✅
+* Gitignore ✅
+* Github Actions 
+* Custom User model ✅
 * Dockerfile
 * docker-compose
-* Folder restructure
+* Folder restructure ✅
 * Environs[django]
 * Static setup
 * Behave-django for BDD
