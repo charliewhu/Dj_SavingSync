@@ -24,6 +24,6 @@ mkdir your_project_name
 cd your_project_name
 
 # create django project in current directory
-django-admin startproject --template https://github.com/username/repo/archive/master.zip config .
+django-admin startproject --template THIS_REPO config .
 ```
 
