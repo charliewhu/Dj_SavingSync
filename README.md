@@ -12,9 +12,9 @@ Readymade Django project, complete with:
 * Model-Bakery ✅
 * Psycopg2 ✅
 * Gunicorn ✅
-* Dockerfile
-* docker-compose
-* Nginx
+* Dockerfile ✅
+* docker-compose ✅
+* Nginx ✅
 
 ## Creating a project
 
