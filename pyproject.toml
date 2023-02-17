@@ -10,6 +10,7 @@ packages = [{include = "dj_project_template"}]
 python = "^3.11"
 Django = "^4.1.6"
 environs = {extras = ["django"], version = "^9.5.0"}
+behave-django = "^1.4.0"
 
 
 [tool.poetry.group.dev.dependencies]
