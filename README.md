@@ -10,7 +10,6 @@ Readymade Django project, complete with:
 * Environs[django] ✅
 * Behave-django for BDD ✅
 * Model-Bakery ✅
-* Django-cors-headers
 * Pscopg2
 * Gunicorn
 * Dockerfile
