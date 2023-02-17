@@ -9,7 +9,7 @@ Readymade Django project, complete with:
 * Static setup ✅
 * Environs[django] ✅
 * Behave-django for BDD ✅
-* Model-Bakery 
+* Model-Bakery ✅
 * Django-cors-headers
 * Pscopg2
 * Gunicorn
