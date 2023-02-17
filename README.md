@@ -19,11 +19,16 @@ Readymade Django project, complete with:
 ## Creating a project
 
 ```bash
-# create a new project directory
-mkdir your_project_name
-cd your_project_name
+// clone repo
+mkdir your_folder_name
+cd your_folder_name
+git clone https://github.com/charliewhu/Dj_Project_Template.git .
 
-# create django project in current directory
-django-admin startproject --template THIS_REPO config .
+// install dependencies and activate virtual environment
+poetry install
+source .venv/bin/activate
+
+// run server
+docker-compose up
 ```
 
