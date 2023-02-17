@@ -5,16 +5,17 @@ Readymade Django project, complete with:
 * Gitignore ✅
 * Github Actions 
 * Custom User model ✅
-* Dockerfile
-* docker-compose
 * Folder restructure ✅
 * Environs[django]
 * Static setup
 * Behave-django for BDD
-* Django-cors-headers
 * Model-Bakery
+* Django-cors-headers
 * Pscopg2
 * Gunicorn
+* Dockerfile
+* docker-compose
+* Nginx
 
 ## Creating a project
 
