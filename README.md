@@ -6,8 +6,8 @@ Readymade Django project, complete with:
 * Github Actions 
 * Custom User model ✅
 * Folder restructure ✅
-* Environs[django]
 * Static setup
+* Environs[django]
 * Behave-django for BDD
 * Model-Bakery
 * Django-cors-headers
