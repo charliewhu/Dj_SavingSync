@@ -32,8 +32,8 @@ DEBUG = env.bool("DJANGO_DEBUG", default=False)
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=[""])
 
 # SECURITY WARNING: DO NOT USE IN PRODUCTION!
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-CSRF_TRUSTED_ORIGINS = ['http://0.0.0.0']
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+CSRF_TRUSTED_ORIGINS = ["http://0.0.0.0"]
 
 
 # Application definition
@@ -89,7 +89,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": env.dj_db_url(
         "DATABASE_URL",
-        default="postgres://postgres@db/postgres",
+        default="postgres://postgres@db/postgres",  # change to "sqlite:///db.sqlite3" if you dont want to use Docker / PostgreSQL
     )
 }
 
