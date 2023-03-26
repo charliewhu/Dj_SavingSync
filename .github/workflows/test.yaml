@@ -14,6 +14,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Build container for tests
+      run: docker-compose -f docker-compose.yaml build
+
     - name: Run type checks in docker container
       run: docker-compose -f docker-compose.yaml run type_check
 
