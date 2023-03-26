@@ -17,5 +17,8 @@ jobs:
     - name: Build docker images
       run: docker-compose up -d
 
-    - name: Run tests
+    - name: Run unit tests
       run: docker-compose exec -T django python manage.py test
+
+    - name: Run e2e tests
+      run: docker-compose exec -T django python manage.py behave
