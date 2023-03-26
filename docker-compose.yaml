@@ -8,14 +8,15 @@ services:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
       
   django:
+    build: .
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
+    ports:
+      - 8000:8000
     env_file:
       - .env
     volumes:
       - .:/django
       - static:/static
-    build: .
-    ports:
-      - 8000:8000
     depends_on:
       - db
 
