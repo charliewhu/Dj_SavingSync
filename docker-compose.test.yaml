@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+      
+  test:
+    build: .
+    depends_on:
+      - db
+    env_file:
+      - .env.dev
+    command:
+      - /bin/sh
+      - -c
+      - |
+        echo "TESTING...."
+        python3 manage.py test
+        python3 manage.py behave
+        echo "TESTS COMPLETE"
+
+
+volumes:
+  postgres_data:
