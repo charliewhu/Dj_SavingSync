@@ -8,6 +8,8 @@ services:
       - POSTGRES_USER=username
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=db_name
+      # Template connection string: postgres://USER:PASSWORD@HOST:PORT/DB_NAME
+      # Eg: postgres://username:password@db:5432/db_name
       
   django:
     build: .
