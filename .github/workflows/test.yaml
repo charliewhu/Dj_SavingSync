@@ -1,0 +1,21 @@
+name: Test
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    name: Run test suite
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build docker images
+      run: docker-compose up -d
+
+    - name: Run tests
+      run: docker-compose exec django python manage.py test
