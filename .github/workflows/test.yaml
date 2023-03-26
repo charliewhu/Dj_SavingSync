@@ -14,11 +14,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Build docker images
-      run: docker-compose up -d
+    - name: Run tests in docker container
+      run: docker-compose -f docker-compose.test.yaml up
 
-    - name: Run unit tests
-      run: docker-compose exec -T django python manage.py test
+    # - name: Build docker images
+    #   run: docker-compose up -d
 
-    - name: Run e2e tests
-      run: docker-compose exec -T django python manage.py behave
+    # - name: Run type checks
+    #   run: 
+
+    # - name: Run unit tests
+    #   run: docker-compose exec -T django python manage.py test
+
+    # - name: Run e2e tests
+    #   run: docker-compose exec -T django python manage.py behave
