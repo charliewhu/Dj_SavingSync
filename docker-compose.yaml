@@ -18,6 +18,28 @@ services:
       - .:/django
     depends_on:
       - db
+  
+  test:
+    build: .
+    depends_on:
+      - db
+      - django
+    profiles:
+      - ['test']
+    env_file:
+      - .env.dev
+    command:
+      - /bin/sh
+      - -c
+      - |
+        echo "Type checking: "
+        mypy .
+
+        echo "Unit tests:"
+        python3 manage.py test
+
+        echo "e2e tests: "
+        python3 manage.py behave
 
 volumes:
   postgres_data:
