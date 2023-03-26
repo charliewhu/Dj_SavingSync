@@ -32,9 +32,14 @@ DEBUG = env.bool("DJANGO_DEBUG", default=False)
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=[""])
 
 # SECURITY WARNING: DO NOT USE IN PRODUCTION!
+# either ensure proxy is https only or disable and forward header
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 CSRF_TRUSTED_ORIGINS = ["http://0.0.0.0"]
 
+# SECURITY WARNING: set to True in production
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = env.bool("SECURE_SSL_REDIRECT", default=True)
 
 # Application definition
 INSTALLED_APPS = [
