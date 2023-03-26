@@ -14,6 +14,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Run tests in docker container
-      run: docker-compose -f docker-compose.yaml --profile test up --abort-on-container-exit
+    - name: Run type checks in docker container
+      run: docker-compose -f docker-compose.yaml run type_checks
 
+    - name: Run unit tests in docker container
+      run: docker-compose -f docker-compose.yaml run unit_test
+
+    - name: Run e2e tests in docker container
+      run: docker-compose -f docker-compose.yaml run e2e_test

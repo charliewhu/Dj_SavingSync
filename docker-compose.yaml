@@ -7,7 +7,7 @@ services:
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
       
-  django:
+  django: &django
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     ports:
@@ -18,28 +18,42 @@ services:
       - .:/django
     depends_on:
       - db
-  
-  test:
+
+  type_check:
     build: .
     depends_on:
-      - db
       - django
     profiles:
-      - ['test']
+      - test
     env_file:
       - .env.dev
-    command:
-      - /bin/sh
-      - -c
-      - |
-        echo "Type checking: "
-        mypy .
+    volumes:
+      - .:/django
+    command: mypy .
 
-        echo "Unit tests:"
-        python3 manage.py test
+  unit_test:
+    build: .
+    depends_on:
+      - django
+    profiles:
+      - test
+    env_file:
+      - .env.dev
+    volumes:
+      - .:/django
+    command: python manage.py test
 
-        echo "e2e tests: "
-        python3 manage.py behave
+  e2e_test:
+    build: .
+    depends_on:
+      - django
+    profiles:
+      - test
+    env_file:
+      - .env.dev
+    volumes:
+      - .:/django
+    command: python manage.py behave
 
 volumes:
   postgres_data:
