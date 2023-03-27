@@ -3,7 +3,7 @@
 Readymade Django project, complete with:
 * Poetry ✅
 * Gitignore ✅
-* Github Actions 
+* Github Actions ✅
 * Custom User model ✅
 * Folder restructure ✅
 * Static setup ✅
