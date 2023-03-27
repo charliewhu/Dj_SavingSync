@@ -94,7 +94,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": env.dj_db_url(
         "DATABASE_URL",
-        default="postgres://postgres@db/postgres",  # change to "sqlite:///db.sqlite3" if you dont want to use Docker / PostgreSQL
+        default="sqlite:///db.sqlite3",  # change to "sqlite:///db.sqlite3" if you dont want to use Docker / PostgreSQL
     )
 }
 
