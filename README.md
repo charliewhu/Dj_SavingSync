@@ -25,7 +25,7 @@ cd your_folder_name
 git clone https://github.com/charliewhu/Dj_Project_Template.git .
 
 // install dependencies and activate virtual environment
-// this is not required when running through docker
+// this is required for module intellisense to work
 poetry install
 source .venv/bin/activate
 
