@@ -18,7 +18,7 @@ RUN poetry config virtualenvs.create false
 RUN poetry install --no-interaction --no-ansi
 
 # Install Playwright deps
-RUN playwright install --with-deps
+# RUN playwright install --with-deps 
 
 # Creating folders, and files for the project:
 COPY . /django/
