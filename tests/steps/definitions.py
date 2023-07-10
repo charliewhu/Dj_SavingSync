@@ -1,5 +1,6 @@
 from behave import given, when, then
 
+
 @given("this step exists")
 def step_impl(context):
     pass
@@ -13,3 +14,25 @@ def step_when(context, string):
 @then("I should see the behave tests run")
 def step_then(context):
     pass
+
+
+@given("I am on the home page")
+def step_impl(context):
+    raise NotImplementedError("STEP: Given I am on the home page")
+
+
+@when('I add an income of "{amount}"')
+def step_impl(context, amount):
+    raise NotImplementedError('STEP: When I add an income of "100"')
+
+
+@then('I should see "{amount}" in the monthly budget remaining section')
+def step_impl(context, amount):
+    raise NotImplementedError(
+        'STEP: Then I should see "100" in the monthly budget remaining section'
+    )
+
+
+@when('I add an expense of "{amount}"')
+def step_impl(context, amount):
+    raise NotImplementedError('STEP: When I add an expense of "50"')
