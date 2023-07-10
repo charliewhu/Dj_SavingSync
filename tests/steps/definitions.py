@@ -1,4 +1,5 @@
 from behave import given, when, then
+from playwright.sync_api import expect
 
 
 @given("this step exists")
