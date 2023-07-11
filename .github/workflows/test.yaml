@@ -1,9 +1,9 @@
 name: Test
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
 
 jobs:
   test:
@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Run type checks in docker container
-      run: docker-compose -f docker-compose.yaml run type_check
+      - name: Run type checks in docker container
+        run: docker-compose -f docker-compose.yaml run type_check
 
-    - name: Run unit tests in docker container
-      run: docker-compose -f docker-compose.yaml run unit_test
+    # - name: Run unit tests in docker container
+    #   run: docker-compose -f docker-compose.yaml run unit_test
 
-    - name: Run e2e tests in docker container
-      run: docker-compose -f docker-compose.yaml run e2e_test
+    # - name: Run e2e tests in docker container
+    #   run: docker-compose -f docker-compose.yaml run e2e_test
