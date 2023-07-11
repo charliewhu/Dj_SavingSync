@@ -19,62 +19,6 @@ typing-extensions = {version = ">=4", markers = "python_version < \"3.11\""}
 tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
 [[package]]
-name = "beautifulsoup4"
-version = "4.12.2"
-description = "Screen-scraping library"
-category = "main"
-optional = false
-python-versions = ">=3.6.0"
-files = [
-    {file = "beautifulsoup4-4.12.2-py3-none-any.whl", hash = "sha256:bd2520ca0d9d7d12694a53d44ac482d181b4ec1888909b035a3dbf40d0f57d4a"},
-    {file = "beautifulsoup4-4.12.2.tar.gz", hash = "sha256:492bbc69dca35d12daac71c4db1bfff0c876c00ef4a2ffacce226d4638eb72da"},
-]
-
-[package.dependencies]
-soupsieve = ">1.2"
-
-[package.extras]
-html5lib = ["html5lib"]
-lxml = ["lxml"]
-
-[[package]]
-name = "behave"
-version = "1.2.6"
-description = "behave is behaviour-driven development, Python style"
-category = "main"
-optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-files = [
-    {file = "behave-1.2.6-py2.py3-none-any.whl", hash = "sha256:ebda1a6c9e5bfe95c5f9f0a2794e01c7098b3dde86c10a95d8621c5907ff6f1c"},
-    {file = "behave-1.2.6.tar.gz", hash = "sha256:b9662327aa53294c1351b0a9c369093ccec1d21026f050c3bd9b3e5cccf81a86"},
-]
-
-[package.dependencies]
-parse = ">=1.8.2"
-parse-type = ">=0.4.2"
-six = ">=1.11"
-
-[package.extras]
-develop = ["coverage", "invoke (>=0.21.0)", "modernize (>=0.5)", "path.py (>=8.1.2)", "pathlib", "pycmd", "pylint", "pytest (>=3.0)", "pytest-cov", "tox"]
-docs = ["sphinx (>=1.6)", "sphinx-bootstrap-theme (>=0.6)"]
-
-[[package]]
-name = "behave-django"
-version = "1.4.0"
-description = "Behave BDD integration for Django"
-category = "main"
-optional = false
-python-versions = "*"
-files = [
-    {file = "behave-django-1.4.0.tar.gz", hash = "sha256:aecbc535699517100c1e443eadb4a5d761c2b1d2f4364d88c8e74a236c915c9c"},
-    {file = "behave_django-1.4.0-py3-none-any.whl", hash = "sha256:a75b88ab7e5ceb1efa9836c73e5e2db2c5fdc2e99d5901138c5cdab356d1680b"},
-]
-
-[package.dependencies]
-beautifulsoup4 = "*"
-behave = "*"
-
-[[package]]
 name = "black"
 version = "23.3.0"
 description = "The uncompromising code formatter."
@@ -615,39 +559,6 @@ files = [
 ]
 
 [[package]]
-name = "parse"
-version = "1.19.1"
-description = "parse() is the opposite of format()"
-category = "main"
-optional = false
-python-versions = "*"
-files = [
-    {file = "parse-1.19.1-py2.py3-none-any.whl", hash = "sha256:371ed3800dc63983832159cc9373156613947707bc448b5215473a219dbd4362"},
-    {file = "parse-1.19.1.tar.gz", hash = "sha256:cc3a47236ff05da377617ddefa867b7ba983819c664e1afe46249e5b469be464"},
-]
-
-[[package]]
-name = "parse-type"
-version = "0.6.2"
-description = "Simplifies to build parse types based on the parse module"
-category = "main"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*"
-files = [
-    {file = "parse_type-0.6.2-py2.py3-none-any.whl", hash = "sha256:06d39a8b70fde873eb2a131141a0e79bb34a432941fb3d66fad247abafc9766c"},
-    {file = "parse_type-0.6.2.tar.gz", hash = "sha256:79b1f2497060d0928bc46016793f1fca1057c4aacdf15ef876aa48d75a73a355"},
-]
-
-[package.dependencies]
-parse = {version = ">=1.18.0", markers = "python_version >= \"3.0\""}
-six = ">=1.15"
-
-[package.extras]
-develop = ["build (>=0.5.1)", "coverage (>=4.4)", "pylint", "pytest (<5.0)", "pytest (>=5.0)", "pytest-cov", "pytest-html (>=1.19.0)", "ruff", "tox (>=2.8,<4.0)", "twine (>=1.13.0)", "virtualenv (<20.22.0)", "virtualenv (>=20.0.0)"]
-docs = ["Sphinx (>=1.6)", "sphinx-bootstrap-theme (>=0.6.0)"]
-testing = ["pytest (<5.0)", "pytest (>=5.0)", "pytest-html (>=1.19.0)"]
-
-[[package]]
 name = "pathspec"
 version = "0.11.1"
 description = "Utility library for gitignore style pattern matching of file paths."
@@ -929,30 +840,6 @@ testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8-2020", "ini2toml[l
 testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
-name = "six"
-version = "1.16.0"
-description = "Python 2 and 3 compatibility utilities"
-category = "main"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
-files = [
-    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
-    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
-]
-
-[[package]]
-name = "soupsieve"
-version = "2.4.1"
-description = "A modern CSS selector implementation for Beautiful Soup."
-category = "main"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "soupsieve-2.4.1-py3-none-any.whl", hash = "sha256:1c1bfee6819544a3447586c889157365a27e10d88cde3ad3da0cf0ddf646feb8"},
-    {file = "soupsieve-2.4.1.tar.gz", hash = "sha256:89d12b2d5dfcd2c9e8c22326da9d9aa9cb3dfab0a83a024f05704076ee8d35ea"},
-]
-
-[[package]]
 name = "sqlparse"
 version = "0.4.4"
 description = "A non-validating SQL parser."
@@ -1062,4 +949,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "5d9f086d8844eb7871d10279235319448309c2844c4106662537130ea9ad5f26"
+content-hash = "15274292fc8a4342028324c1c37cd6ff9646bea73ca870206426540d95c6b9ee"
