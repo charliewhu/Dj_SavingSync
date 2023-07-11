@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     # 3rd party
     # local
     "src.accounts",
-    "src.cashflow",
+    "src.cashflows",
 ]
 
 AUTH_USER_MODEL = "accounts.User"
