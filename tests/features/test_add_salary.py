@@ -17,6 +17,7 @@ class TestAddSalary(BasePlaywrightTestCase):
         self.page.locator('select[name="type"]').select_option(label="Salary")
         self.page.get_by_placeholder("Name").fill("Salary")
         self.page.get_by_placeholder("Amount").fill(100)
+        self.page.get_by_role("button", name="add").click()
 
         assert self.page.get_by_placeholder("Name").inner_text() == ""
         assert self.page.get_by_test_id("monthly-balance").inner_text() == "100"
@@ -26,6 +27,7 @@ class TestAddSalary(BasePlaywrightTestCase):
         self.page.locator('select[name="type"]').select_option(label="Regular Bill")
         self.page.get_by_placeholder("Name").fill("Phone")
         self.page.get_by_placeholder("Amount").fill(50)
+        self.page.get_by_role("button", name="add").click()
 
         assert self.page.get_by_placeholder("Name").inner_text() == ""
         assert self.page.get_by_test_id("monthly-balance").inner_text() == "50"
