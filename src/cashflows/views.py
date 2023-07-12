@@ -1,15 +1,26 @@
 from django.http import HttpRequest, HttpResponse
+from django.db.models import Sum
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from src.cashflows.forms import CashflowForm
+
+from .forms import CashflowForm
+from .models import Cashflow
 
 
 # Create your views here.
 def home(request: HttpRequest):
     form = CashflowForm()
+    cashflows = Cashflow.objects.all()
+    incomes = cashflows.filter(type="INCOME")
+    expenses = cashflows.filter(type="EXPENSE")
+    monthly_balance = cashflows.aggregate(amount=Sum("amount"))
+
     context = {
         "form": form,
+        "incomes": incomes,
+        "expenses": expenses,
+        "monthly_balance": monthly_balance["amount"],
     }
 
     return render(
@@ -20,4 +31,7 @@ def home(request: HttpRequest):
 
 
 def create(request: HttpRequest):
+    form = CashflowForm(request.POST)
+    if form.is_valid():
+        form.save()
     return redirect(reverse("home"))
