@@ -1,15 +1,18 @@
 <h1>hello world</h1>
 
-<select name="cashflow">
-  <option></option>
-  <option value="income">Income</option>
-  <option value="expense">Expense</option>
-</select>
-<select name="type">
-  <option></option>
-  <option value="salary">Salary</option>
-  <option value="regular-bill">Regular Bill</option>
-</select>
-<input type="text" name="name" placeholder="Name" />
-<input type="number" name="amount" placeholder="Amount" />
-<button type="submit">Add</button>
+<form action="{% url 'create' %}" method="POST">
+  {% csrf_token %}
+  <select name="cashflow">
+    <option></option>
+    <option value="income">Income</option>
+    <option value="expense">Expense</option>
+  </select>
+  <select name="type">
+    <option></option>
+    <option value="salary">Salary</option>
+    <option value="regular-bill">Regular Bill</option>
+  </select>
+  <input type="text" name="name" placeholder="Name" />
+  <input type="number" name="amount" placeholder="Amount" />
+  <button type="submit">Add</button>
+</form>
