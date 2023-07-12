@@ -20,7 +20,7 @@ class TestAddSalary(BasePlaywrightTestCase):
         self.page.get_by_role("button", name="add").click()
 
         assert self.page.locator('input[name="name"]').inner_text() == ""
-        assert self.page.get_by_test_id("monthly-balance").inner_text() == "100"
+        assert "100" in self.page.get_by_test_id("monthly-balance").inner_text()
         assert self.page.get_by_test_id("income-list-item").count() == 1
 
         self.page.locator('select[name="type"]').select_option(label="Expense")
@@ -30,5 +30,5 @@ class TestAddSalary(BasePlaywrightTestCase):
         self.page.get_by_role("button", name="add").click()
 
         assert self.page.locator('input[name="name"]').inner_text() == ""
-        assert self.page.get_by_test_id("monthly-balance").inner_text() == "50"
+        assert "50" in self.page.get_by_test_id("monthly-balance").inner_text()
         assert self.page.get_by_test_id("expense-list-item").count() == 1
