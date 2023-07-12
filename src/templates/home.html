@@ -1,6 +1,24 @@
 <h1>hello world</h1>
 
+<h2 data-testid="monthly-balance">Monhtly Balance: {{ monthly_balance }}</h2>
+
 <form action="{% url 'create' %}" method="POST">
   {% csrf_token %} {{ form.as_p }}
   <button type="submit">Add</button>
 </form>
+
+<ul>
+  {% for income in incomes %}
+  <li data-testid="income-list-item">
+    {{ income.type}} {{ income.source}} {{ income.name}} {{income.amount}}
+  </li>
+  {% endfor %}
+</ul>
+
+<ul>
+  {% for expense in expenses %}
+  <li data-testid="expense-list-item">
+    {{ expense.type}} {{ expense.source}} {{ expense.name}} {{expense.amount}}
+  </li>
+  {% endfor %}
+</ul>
