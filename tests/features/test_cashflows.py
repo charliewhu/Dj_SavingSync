@@ -1,3 +1,4 @@
+from decimal import Decimal
 from ..base import BasePlaywrightTestCase
 
 from model_bakery import baker
@@ -48,10 +49,11 @@ class TestCashflows(BasePlaywrightTestCase):
         Then I should not see any cashflows
         """
 
-        self.cashflow = baker.make(Cashflow)
+        self.cashflow = baker.make(Cashflow, type="INCOME")
+
         self.page.goto(f"{self.live_server_url}/")
 
-        cashflow_item_count = self.page.locator(self.income_list_item_id).count
+        cashflow_item_count = self.page.get_by_test_id(self.income_list_item_id).count
 
         assert cashflow_item_count() == 1
 
