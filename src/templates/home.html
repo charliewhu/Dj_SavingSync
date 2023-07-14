@@ -1,6 +1,6 @@
 <h1>hello world</h1>
 
-<h2 data-testid="monthly-balance">Monhtly Balance: {{ monthly_balance }}</h2>
+<h2 data-testid="monthly-balance">Monthly Balance: {{ monthly_balance }}</h2>
 
 <form action="{% url 'create' %}" method="POST">
   {% csrf_token %} {{ form.as_p }}
