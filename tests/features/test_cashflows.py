@@ -30,7 +30,7 @@ class TestCashflows(BasePlaywrightTestCase):
         assert "100" in self.page.get_by_test_id("monthly-balance").inner_text()
         assert cashflow_item_count() == 1
 
-        self.page.locator('select[name="type"]').select_option(label="Income")
+        self.page.locator('select[name="type"]').select_option(label="Expense")
         self.page.locator('select[name="source"]').select_option(label="Regular Bill")
         self.page.locator('input[name="name"]').fill("Phone")
         self.page.locator('input[name="amount"]').fill("50")
