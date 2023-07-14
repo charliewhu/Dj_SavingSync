@@ -42,13 +42,14 @@ class TestCashflows(BasePlaywrightTestCase):
 
     def test_delete(self):
         """
-        Given I am on the home page
-        And I have 1 existing cashflow
+        Given I have 1 existing cashflow
+        And I am on the home page
         When I delete the cashflow
         Then I should not see any cashflows
         """
 
         self.cashflow = baker.make(Cashflow)
+        self.page.goto(f"{self.live_server_url}/")
 
         cashflow_item_count = self.page.locator(self.income_list_item_id).count
 
