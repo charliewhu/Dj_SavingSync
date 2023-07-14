@@ -12,6 +12,9 @@
   <li data-testid="income-list-item">
     {{ income.get_type_display }} {{ income.get_source_display}} {{income.name}}
     {{income.amount}}
+    <form action="{url 'delete' income.id }" method="post">
+      <button type="submit">Delete</button>
+    </form>
   </li>
   {% endfor %}
 </ul>
