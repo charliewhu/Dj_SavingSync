@@ -10,7 +10,8 @@
 <ul>
   {% for income in incomes %}
   <li data-testid="income-list-item">
-    {{ income.type}} {{ income.source}} {{ income.name}} {{income.amount}}
+    {{ income.get_type_display }} {{ income.get_source_display}} {{income.name}}
+    {{income.amount}}
   </li>
   {% endfor %}
 </ul>
@@ -18,7 +19,8 @@
 <ul>
   {% for expense in expenses %}
   <li data-testid="expense-list-item">
-    {{ expense.type}} {{ expense.source}} {{ expense.name}} {{expense.amount}}
+    {{ expense.get_type_display}} {{ expense.get_source_display}}
+    {{expense.name}} {{expense.amount}}
   </li>
   {% endfor %}
 </ul>
