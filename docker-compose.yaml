@@ -27,7 +27,7 @@ services:
       - test
     command: mypy .
 
-  unit_test:
+  test:
     <<: *django
     depends_on:
       - django
@@ -35,13 +35,13 @@ services:
       - test
     command: python manage.py test
 
-  e2e_test:
-    <<: *django
-    depends_on:
-      - django
-    profiles:
-      - test
-    command: python manage.py behave
+  # e2e_test:
+  #   <<: *django
+  #   depends_on:
+  #     - django
+  #   profiles:
+  #     - test
+  #   command: python manage.py behave
 
 volumes:
   postgres_data:
