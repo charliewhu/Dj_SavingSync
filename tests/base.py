@@ -14,6 +14,7 @@ class BasePlaywrightTestCase(StaticLiveServerTestCase):
             # slow_mo=1000,
         )
         cls.page = cls.browser.new_page()
+        cls.page.set_default_navigation_timeout(500)
         cls.page.set_default_timeout(500)
 
     @classmethod

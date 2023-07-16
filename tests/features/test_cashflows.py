@@ -5,6 +5,8 @@ from playwright.sync_api import expect
 from model_bakery import baker
 from src.cashflows.models import Cashflow
 
+expect.set_options(timeout=500)
+
 
 class TestCashflows(BasePlaywrightTestCase):
     def setUp(self):
