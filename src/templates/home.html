@@ -10,8 +10,11 @@
 <ul>
   {% for income in incomes %}
   <li data-testid="income-list-item">
-    {{ income.get_type_display }} {{ income.get_source_display}} {{income.name}}
-    {{income.amount}} {% include 'delete_cashflow_form.html' %}
+    {{ income.get_type_display }} 
+    {{ income.get_source_display}} 
+    {{income.name}}
+    {{income.amount}} 
+    {% include 'delete_cashflow_form.html' %}
   </li>
   {% endfor %}
 </ul>
@@ -19,8 +22,11 @@
 <ul>
   {% for expense in expenses %}
   <li data-testid="expense-list-item">
-    {{ expense.get_type_display}} {{ expense.get_source_display}}
-    {{expense.name}} {{expense.amount}}
+    {{ expense.get_type_display}} 
+    {{ expense.get_source_display}}
+    {{expense.name}} 
+    {{expense.amount}} 
+    {% include 'delete_cashflow_form.html' %}
   </li>
   {% endfor %}
 </ul>
