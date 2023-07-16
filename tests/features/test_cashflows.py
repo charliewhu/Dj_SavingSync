@@ -55,15 +55,12 @@ class TestCashflows(BasePlaywrightTestCase):
         """
 
         self.cashflow = baker.make(Cashflow, type="INCOME")
-
         self.page.goto(f"{self.live_server_url}/")
 
         cashflow_item = self.page.get_by_test_id(self.income_list_item_id)
-
         expect(cashflow_item).to_have_count(1)
 
         self.page.get_by_role("button", name="delete").click()
 
         expect(self.page).to_have_url(f"{self.live_server_url}/")
-
         expect(cashflow_item).to_have_count(0)
