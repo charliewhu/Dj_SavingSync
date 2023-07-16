@@ -32,10 +32,13 @@ def home(request: HttpRequest):
 
 def create_cashflow_view(request: HttpRequest):
     form = CashflowForm(request.POST)
-    if form.is_valid():
-        form.save()
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
     return redirect(reverse("home"))
 
 
 def delete_cashflow_view(request: HttpRequest, id):
+    if request.method == "POST":
+        Cashflow.objects.get(id=id).delete()
     return redirect(reverse("home"))
