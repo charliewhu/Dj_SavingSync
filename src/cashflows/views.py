@@ -38,4 +38,4 @@ def create_cashflow_view(request: HttpRequest):
 
 
 def delete_cashflow_view(request: HttpRequest):
-    pass
+    return redirect(reverse("home"))
