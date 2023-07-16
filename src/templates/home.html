@@ -8,25 +8,25 @@
 </form>
 
 <ul>
-  {% for income in incomes %}
-  <li data-testid="income-list-item">
-    {{ income.get_type_display }} 
-    {{ income.get_source_display}} 
-    {{income.name}}
-    {{income.amount}} 
-    {% include 'delete_cashflow_form.html' %}
-  </li>
+  {% for item in incomes %}
+    <li data-testid="income-list-item">
+      {{ item.get_type_display }} 
+      {{ item.get_source_display}} 
+      {{ item.name }}
+      {{ item.amount }} 
+      {% include 'delete_cashflow_form.html' %}
+    </li>
   {% endfor %}
 </ul>
 
 <ul>
-  {% for expense in expenses %}
-  <li data-testid="expense-list-item">
-    {{ expense.get_type_display}} 
-    {{ expense.get_source_display}}
-    {{expense.name}} 
-    {{expense.amount}} 
-    {% include 'delete_cashflow_form.html' %}
-  </li>
+  {% for item in expenses %}
+    <li data-testid="expense-list-item">
+      {{ item.get_type_display}} 
+      {{ item.get_source_display}}
+      {{ item.name }} 
+      {{ item.amount }} 
+      {% include 'delete_cashflow_form.html' %}
+    </li>
   {% endfor %}
 </ul>
