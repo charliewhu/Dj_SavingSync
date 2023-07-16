@@ -1,5 +1,5 @@
 # Pull base image
-FROM python:3.10
+FROM mcr.microsoft.com/playwright/python:v1.35.0-jammy
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -18,7 +18,7 @@ RUN poetry config virtualenvs.create false
 RUN poetry install --no-interaction --no-ansi
 
 # Install Playwright deps
-# RUN playwright install
+RUN playwright install --with-deps
 
 # Creating folders, and files for the project:
 COPY . /django/
