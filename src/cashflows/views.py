@@ -37,5 +37,5 @@ def create_cashflow_view(request: HttpRequest):
     return redirect(reverse("home"))
 
 
-def delete_cashflow_view(request: HttpRequest):
+def delete_cashflow_view(request: HttpRequest, id):
     return redirect(reverse("home"))
