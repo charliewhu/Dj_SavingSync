@@ -12,8 +12,8 @@ from .models import Cashflow
 def home(request: HttpRequest):
     form = CashflowForm()
     cashflows = Cashflow.objects.all()
-    incomes = cashflows.filter(type="INCOME")
-    expenses = cashflows.filter(type="EXPENSE")
+    incomes = cashflows.filter(type="income")
+    expenses = cashflows.filter(type="expense")
     monthly_balance = cashflows.aggregate(amount=Sum("amount"))
 
     context = {

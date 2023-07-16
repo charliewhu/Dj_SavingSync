@@ -54,7 +54,7 @@ class TestCashflows(BasePlaywrightTestCase):
         Then I should not see any cashflows
         """
 
-        self.cashflow = baker.make(Cashflow, type="INCOME")
+        self.cashflow = baker.make(Cashflow, type="income")
         self.page.goto(f"{self.live_server_url}/")
 
         cashflow_item = self.page.get_by_test_id(self.income_list_item_id)

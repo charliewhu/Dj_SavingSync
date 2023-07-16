@@ -4,13 +4,13 @@ from django.db import models
 # Create your models here.
 class Cashflow(models.Model):
     TYPE_CHOICES = [
-        ("INCOME", "Income"),
-        ("EXPENSE", "Expense"),
+        ("income", "Income"),
+        ("expense", "Expense"),
     ]
 
     SOURCE_CHOICES = [
-        ("SALARY", "Salary"),
-        ("REGULAR_BILL", "Regular Bill"),
+        ("salary", "Salary"),
+        ("regular_bill", "Regular Bill"),
     ]
 
     type = models.CharField(max_length=10, choices=TYPE_CHOICES)
