@@ -2,7 +2,7 @@
 
 <h2 data-testid="monthly-balance">Monthly Balance: {{ monthly_balance }}</h2>
 
-<form action="{% url 'create' %}" method="POST">
+<form action="{% url 'create_cashflow' %}" method="POST">
   {% csrf_token %} {{ form.as_p }}
   <button type="submit">Add</button>
 </form>
@@ -12,7 +12,7 @@
   <li data-testid="income-list-item">
     {{ income.get_type_display }} {{ income.get_source_display}} {{income.name}}
     {{income.amount}}
-    <form action="{url 'delete' income.id }" method="post">
+    <form action="{url 'delete_cashflow' income.id }" method="post">
       <button type="submit">Delete</button>
     </form>
   </li>
