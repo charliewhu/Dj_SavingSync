@@ -11,11 +11,7 @@
   {% for income in incomes %}
   <li data-testid="income-list-item">
     {{ income.get_type_display }} {{ income.get_source_display}} {{income.name}}
-    {{income.amount}}
-    <form action="{% url 'delete_cashflow' income.id %}" method="post">
-      {% csrf_token %}
-      <button type="submit">Delete</button>
-    </form>
+    {{income.amount}} {% include 'delete_cashflow_form.html' %}
   </li>
   {% endfor %}
 </ul>

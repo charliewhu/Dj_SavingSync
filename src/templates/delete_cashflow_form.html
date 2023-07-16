@@ -1,0 +1,4 @@
+<form action="{% url 'delete_cashflow' income.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Delete</button>
+</form>
