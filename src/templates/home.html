@@ -1,16 +1,20 @@
 <h1>hello world</h1>
 
+{% if cashflows %}
 <h2 data-testid="monthly-balance">Monthly Balance: {{ cashflows.monthly_balance }}</h2>
 <h2 data-testid="biannual-balance">Biannual Balance: {{ cashflows.biannual_balance }}</h2>
 <h2 data-testid="annual-balance">Annual Balance: {{ cashflows.annual_balance }}</h2>
+{% endif %}
 
 <form action="{% url 'create_cashflow' %}" method="POST">
   {% csrf_token %} {{ form.as_p }}
   <button type="submit">Add</button>
 </form>
 
+{% if cashflows %}
+
 <ul>
-  {% for item in incomes %}
+  {% for item in cashflows.incomes %}
     <li data-testid="income-list-item">
       {{ item.get_type_display }} 
       {{ item.get_source_display}} 
@@ -22,7 +26,7 @@
 </ul>
 
 <ul>
-  {% for item in expenses %}
+  {% for item in cashflows.expenses %}
     <li data-testid="expense-list-item">
       {{ item.get_type_display}} 
       {{ item.get_source_display}}
@@ -32,3 +36,7 @@
     </li>
   {% endfor %}
 </ul>
+
+{% else %}
+  <p>No items yet</p>
+{% endif %}
