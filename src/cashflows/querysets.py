@@ -8,3 +8,6 @@ class CashflowQuerySet(models.QuerySet):
 
     def biannual_balance(self):
         return self.aggregate(amount=Sum("amount")).get("amount") * 6
+
+    def annual_balance(self):
+        return self.aggregate(amount=Sum("amount")).get("amount") * 12

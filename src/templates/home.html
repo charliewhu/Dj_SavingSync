@@ -2,7 +2,7 @@
 
 <h2 data-testid="monthly-balance">Monthly Balance: {{ cashflows.monthly_balance }}</h2>
 <h2 data-testid="biannual-balance">Biannual Balance: {{ cashflows.biannual_balance }}</h2>
-<h2 data-testid="biannual-balance">Biannual Balance: {{ cashflows.biannual_balance }}</h2>
+<h2 data-testid="annual-balance">Annual Balance: {{ cashflows.annual_balance }}</h2>
 
 <form action="{% url 'create_cashflow' %}" method="POST">
   {% csrf_token %} {{ form.as_p }}
