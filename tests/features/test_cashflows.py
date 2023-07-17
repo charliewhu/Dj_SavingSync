@@ -80,4 +80,4 @@ class TestCashflows(BasePlaywrightTestCase):
 
         expect(self.page.get_by_test_id("monthly-balance")).to_contain_text("100")
         expect(self.page.get_by_test_id("biannual-balance")).to_contain_text("600")
-        expect(self.page.get_by_test_id("annual-balance")).to_contain_text("1000")
+        expect(self.page.get_by_test_id("annual-balance")).to_contain_text("1200")
