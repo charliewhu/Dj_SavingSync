@@ -64,3 +64,20 @@ class TestCashflows(BasePlaywrightTestCase):
 
         expect(self.page).to_have_url(f"{self.live_server_url}/")
         expect(cashflow_item).to_have_count(0)
+
+    def test_milestones(self):
+        """
+        Given I have an existing Income Cashflow of 200
+        And I have and existing Expense Cashflow of 100
+        And I am on the home page
+        Then I should see a monthly balance of 100
+        And I should see a biannual balance of 600
+        And I should see an annual balance of 1200
+        """
+        baker.make(Cashflow, type="income", amount=200)
+        baker.make(Cashflow, type="expense", amount=100)
+        self.page.goto(f"{self.live_server_url}/")
+
+        expect(self.page.get_by_test_id("monthly-balance")).to_contain_text("100")
+        expect(self.page.get_by_test_id("biannual-balance")).to_contain_text("600")
+        expect(self.page.get_by_test_id("annual-balance")).to_contain_text("1000")
