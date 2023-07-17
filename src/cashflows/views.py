@@ -10,14 +10,10 @@ from .models import Cashflow
 def home(request: HttpRequest):
     form = CashflowForm()
     cashflows = Cashflow.objects.all()
-    incomes = cashflows.filter(type="income")
-    expenses = cashflows.filter(type="expense")
 
     context = {
         "form": form,
         "cashflows": cashflows,
-        "incomes": incomes,
-        "expenses": expenses,
     }
 
     return render(
