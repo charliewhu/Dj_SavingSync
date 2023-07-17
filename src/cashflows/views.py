@@ -1,8 +1,6 @@
-from django.http import HttpRequest, HttpResponse
-from django.db.models import Sum
+from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from django.urls import reverse
-
 
 from .forms import CashflowForm
 from .models import Cashflow
@@ -14,13 +12,16 @@ def home(request: HttpRequest):
     cashflows = Cashflow.objects.all()
     incomes = cashflows.filter(type="income")
     expenses = cashflows.filter(type="expense")
-    monthly_balance = cashflows.aggregate(amount=Sum("amount"))
+
+    monthly_balance = cashflows.monthly_balance()
+    biannual_balance = cashflows.biannual_balance()
 
     context = {
         "form": form,
         "incomes": incomes,
         "expenses": expenses,
-        "monthly_balance": monthly_balance["amount"],
+        "monthly_balance": monthly_balance,
+        "biannual_balance": biannual_balance,
     }
 
     return render(
