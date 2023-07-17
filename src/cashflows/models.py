@@ -1,5 +1,7 @@
 from django.db import models
 
+from .querysets import CashflowQuerySet
+
 
 # Create your models here.
 class Cashflow(models.Model):
@@ -17,3 +19,5 @@ class Cashflow(models.Model):
     source = models.CharField(max_length=20, choices=SOURCE_CHOICES)
     name = models.CharField(max_length=30)
     amount = models.DecimalField(max_digits=9, decimal_places=2)
+
+    objects = CashflowQuerySet.as_manager()

@@ -13,15 +13,11 @@ def home(request: HttpRequest):
     incomes = cashflows.filter(type="income")
     expenses = cashflows.filter(type="expense")
 
-    monthly_balance = cashflows.monthly_balance()
-    biannual_balance = cashflows.biannual_balance()
-
     context = {
         "form": form,
+        "cashflows": cashflows,
         "incomes": incomes,
         "expenses": expenses,
-        "monthly_balance": monthly_balance,
-        "biannual_balance": biannual_balance,
     }
 
     return render(
