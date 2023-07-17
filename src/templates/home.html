@@ -1,6 +1,7 @@
 <h1>hello world</h1>
 
 <h2 data-testid="monthly-balance">Monthly Balance: {{ monthly_balance }}</h2>
+<h2 data-testid="biannual-balance">Biannual Balance: {{ biannual_balance }}</h2>
 
 <form action="{% url 'create_cashflow' %}" method="POST">
   {% csrf_token %} {{ form.as_p }}
