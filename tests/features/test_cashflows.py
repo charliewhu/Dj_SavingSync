@@ -90,6 +90,7 @@ class TestCashflows(BasePlaywrightTestCase):
         And I should see a biannual balance of 600
         And I should see an annual balance of 1200
         """
+
         baker.make(Cashflow, type="income", amount=200)
         baker.make(Cashflow, type="expense", amount=100)
         self.page.goto(f"{self.live_server_url}/")
