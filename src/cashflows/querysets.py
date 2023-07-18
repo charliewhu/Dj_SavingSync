@@ -10,10 +10,10 @@ class CashflowQuerySet(models.QuerySet):
         return self.filter(type="expense")
 
     def monthly_balance(self):
-        return self.aggregate(amount=Sum("amount")).get("amount")
+        return self.aggregate(amount=Sum("amount")).get("amount", 0)
 
     def biannual_balance(self):
-        return self.aggregate(amount=Sum("amount")).get("amount") * 6
+        return self.aggregate(amount=Sum("amount")).get("amount", 0) * 6
 
     def annual_balance(self):
-        return self.aggregate(amount=Sum("amount")).get("amount") * 12
+        return self.aggregate(amount=Sum("amount")).get("amount", 0) * 12
