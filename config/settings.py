@@ -57,10 +57,15 @@ INSTALLED_APPS = [
     # 3rd party
     "debug_toolbar",
     "django_browser_reload",
+    "tailwind",
     # local
     "src.accounts",
     "src.cashflows",
+    "src.theme",
 ]
+
+TAILWIND_APP_NAME = "src.theme"
+
 
 AUTH_USER_MODEL = "accounts.User"
 
