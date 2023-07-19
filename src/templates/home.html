@@ -1,9 +1,9 @@
 <body>
   
   {% if cashflows %}
-  <h2 data-testid="monthly-balance">Monthly Balance: {{ cashflows.monthly_balance }}</h2>
-  <h2 data-testid="biannual-balance">Biannual Balance: {{ cashflows.biannual_balance }}</h2>
-  <h2 data-testid="annual-balance">Annual Balance: {{ cashflows.annual_balance }}</h2>
+    <h2 data-testid="monthly-balance">Monthly Balance: {{ cashflows.monthly_balance }}</h2>
+    <h2 data-testid="biannual-balance">Biannual Balance: {{ cashflows.biannual_balance }}</h2>
+    <h2 data-testid="annual-balance">Annual Balance: {{ cashflows.annual_balance }}</h2>
   {% endif %}
   
   <form action="{% url 'create_cashflow' %}" method="POST">
@@ -14,29 +14,29 @@
   
   {% if cashflows %}
   
-  <ul>
-    {% for item in cashflows.incomes %}
-      <li data-testid="income-list-item">
-        {{ item.get_type_display }}
-        {{ item.get_source_display}}
-        {{ item.name }}
-        {{ item.amount }}
-        {% include 'delete_cashflow_form.html' %}
-      </li>
-    {% endfor %}
-  </ul>
-  
-  <ul>
-    {% for item in cashflows.expenses %}
-      <li data-testid="expense-list-item">
-        {{ item.get_type_display}}
-        {{ item.get_source_display}}
-        {{ item.name }}
-        {{ item.amount }}
-        {% include 'delete_cashflow_form.html' %}
-      </li>
-    {% endfor %}
-  </ul>
+    <ul>
+      {% for item in cashflows.incomes %}
+        <li data-testid="income-list-item">
+          {{ item.get_type_display }}
+          {{ item.get_source_display}}
+          {{ item.name }}
+          {{ item.amount }}
+          {% include 'delete_cashflow_form.html' %}
+        </li>
+      {% endfor %}
+    </ul>
+    
+    <ul>
+      {% for item in cashflows.expenses %}
+        <li data-testid="expense-list-item">
+          {{ item.get_type_display}}
+          {{ item.get_source_display}}
+          {{ item.name }}
+          {{ item.amount }}
+          {% include 'delete_cashflow_form.html' %}
+        </li>
+      {% endfor %}
+    </ul>
   
   {% else %}
     <p>No items yet</p>
