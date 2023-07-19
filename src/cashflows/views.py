@@ -1,4 +1,4 @@
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
@@ -9,7 +9,7 @@ from .models import Cashflow
 # Create your views here.
 def home(request: HttpRequest):
     form = CashflowForm()
-    cashflows = Cashflow.objects.all()
+    cashflows = Cashflow.objects.all().order_by("-amount")
 
     context = {
         "form": form,
