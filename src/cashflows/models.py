@@ -14,6 +14,7 @@ class Cashflow(models.Model):
     SOURCE_CHOICES = [
         ("salary", "Salary"),
         ("regular_bill", "Regular Bill"),
+        ("savings", "Savings"),
     ]
 
     type = models.CharField(max_length=10, choices=TYPE_CHOICES)
