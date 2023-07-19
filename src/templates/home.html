@@ -15,26 +15,24 @@
   {% if cashflows %}
   
     <ul>
-      {% for item in cashflows.incomes %}
-        <li data-testid="income-list-item">
-          {{ item.get_type_display }}
-          {{ item.get_source_display}}
-          {{ item.name }}
-          {{ item.amount }}
-          {% include 'delete_cashflow_form.html' %}
-        </li>
-      {% endfor %}
-    </ul>
-    
-    <ul>
-      {% for item in cashflows.expenses %}
-        <li data-testid="expense-list-item">
-          {{ item.get_type_display}}
-          {{ item.get_source_display}}
-          {{ item.name }}
-          {{ item.amount }}
-          {% include 'delete_cashflow_form.html' %}
-        </li>
+      {% for item in cashflows %}
+        {% if item.type == 'income' %}
+          <li data-testid="income-list-item">
+            {{ item.get_type_display }}
+            {{ item.get_source_display}}
+            {{ item.name }}
+            {{ item.amount }}
+            {% include 'delete_cashflow_form.html' %}
+          </li>
+        {% elif item.type == 'expense' %}
+          <li data-testid="expense-list-item">
+            {{ item.get_type_display}}
+            {{ item.get_source_display}}
+            {{ item.name }}
+            {{ item.amount }}
+            {% include 'delete_cashflow_form.html' %}
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
   
