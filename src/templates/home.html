@@ -1,49 +1,50 @@
 {% extends "base.html" %}
 
 {% block main %}
+  
+{% if cashflows %}
+  <h2 data-testid="monthly-balance">Monthly Balance: £{{ cashflows.monthly_balance|floatformat:2  }}</h2>
+  <h2 data-testid="biannual-balance">Biannual Balance: £{{ cashflows.biannual_balance|floatformat:2  }}</h2>
+  <h2 data-testid="annual-balance">Annual Balance: £{{ cashflows.annual_balance|floatformat:2  }}</h2>
+{% endif %}
 
-<body>
-  
-  {% if cashflows %}
-    <h2 data-testid="monthly-balance">Monthly Balance: {{ cashflows.monthly_balance }}</h2>
-    <h2 data-testid="biannual-balance">Biannual Balance: {{ cashflows.biannual_balance }}</h2>
-    <h2 data-testid="annual-balance">Annual Balance: {{ cashflows.annual_balance }}</h2>
-  {% endif %}
-  
-  <form action="{% url 'create_cashflow' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Add</button>
-  </form>
-  
-  {% if cashflows %}
-  
-    <ul>
-      {% for item in cashflows %}
-        {% if item.type == 'income' %}
-          <li data-testid="income-list-item">
-            {{ item.get_type_display }}
+<form action="{% url 'create_cashflow' %}" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add</button>
+</form>
+
+{% if cashflows %}
+  <div id="cashflow-items" class="flex justify-evenly">
+    <ul id="income-list">
+      <strong>Incomes</strong>
+      {% for item in cashflows.incomes %}
+        <li data-testid="income-list-item" class="flex justify-between">
+          <div>
             {{ item.get_source_display}}
             {{ item.name }}
             {{ item.amount }}
-            {% include 'delete_cashflow_form.html' %}
-          </li>
-        {% elif item.type == 'expense' %}
-          <li data-testid="expense-list-item">
-            {{ item.get_type_display}}
-            {{ item.get_source_display}}
-            {{ item.name }}
-            {{ item.amount }}
-            {% include 'delete_cashflow_form.html' %}
-          </li>
-        {% endif %}
+          </div>
+          <div>{% include 'delete_cashflow_form.html' %}</div>
+        </li>
       {% endfor %}
     </ul>
+    <ul id="expense-list">
+      <strong>Expenses</strong>
+      {% for item in cashflows.expenses %}
+        <li data-testid="expense-list-item">
+          {{ item.get_source_display}}
+          {{ item.name }}
+          {{ item.amount }}
+          {% include 'delete_cashflow_form.html' %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+{% else %}
+  <p>No items yet</p>
+{% endif %}
   
-  {% else %}
-    <p>No items yet</p>
-  {% endif %}
-  
-</body>
 
 {% endblock main %}
