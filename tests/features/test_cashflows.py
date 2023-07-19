@@ -100,9 +100,6 @@ class TestCashflows(BasePlaywrightTestCase):
         expect(self.page.get_by_test_id("annual-balance")).to_contain_text("1200")
 
 
-# TODO: UI: Order cashflows high to low
-# TODO: UI: Income and expenses in separate columns
-# TODO: UI: Format headline figures into currency (template filter tag?)
 # TODO: Model: Add categories Needs / Wants / Savings to Cashflow
 # TODO: UI/UX: Salary/Income could be radio buttons
 # TODO: Model: add Irregular Expense as Cashflow source
