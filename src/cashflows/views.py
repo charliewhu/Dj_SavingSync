@@ -18,7 +18,7 @@ def home(request: HttpRequest):
 
     return render(
         request,
-        "home.html",
+        "cashflows/home.html",
         context,
     )
 
