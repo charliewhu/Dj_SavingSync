@@ -103,3 +103,5 @@ class TestCashflows(BasePlaywrightTestCase):
 # TODO: Model: Add categories Needs / Wants / Savings to Cashflow
 # TODO: UI/UX: Salary/Income could be radio buttons
 # TODO: Model: add Irregular Expense as Cashflow source
+# TODO: Feature: cashflows can be active/inactive ?
+# <!-- {% include "cashflow-list-item.html" with id="income-list-item" %} -->

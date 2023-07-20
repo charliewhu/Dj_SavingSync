@@ -324,25 +324,6 @@ django = "*"
 typing-extensions = "*"
 
 [[package]]
-name = "django-tailwind"
-version = "3.6.0"
-description = "Tailwind CSS Framework for Django projects"
-category = "main"
-optional = false
-python-versions = ">=3.8.1,<4.0.0"
-files = [
-    {file = "django_tailwind-3.6.0-py3-none-any.whl", hash = "sha256:93db0ed1c18ae21ee8ad7f19f96744f5b2322e9d9872307a06e0f45b21cbe60a"},
-    {file = "django_tailwind-3.6.0.tar.gz", hash = "sha256:d878222a4ef957d1d0f0529dcd28b0065995ca6b8c7b43b058b9214c9e7d8ec0"},
-]
-
-[package.dependencies]
-django = ">=3.2.14"
-django-browser-reload = {version = ">=1.6.0,<2.0.0", optional = true, markers = "extra == \"reload\""}
-
-[package.extras]
-reload = ["django-browser-reload (>=1.6.0,<2.0.0)"]
-
-[[package]]
 name = "environs"
 version = "9.5.0"
 description = "simplified environment variable parsing"
@@ -999,4 +980,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "0f93451d6c25adde6076b91ee82fb9cb63ba65545ec6343e49856069f28d1073"
+content-hash = "00525c7e88eb0e8cf83fc66482b4cf16f46e12f0b9950e5000959e4703e10771"

@@ -1,8 +1,8 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Cashflow
 
 
-class CashflowForm(ModelForm):
+class CashflowForm(forms.ModelForm):
     class Meta:
         model = Cashflow
         fields = [
@@ -11,3 +11,8 @@ class CashflowForm(ModelForm):
             "name",
             "amount",
         ]
+        widgets = {
+            "name": forms.TextInput(
+                attrs={"class": "input input-bordered input-accent w-full max-w-xs"}
+            ),
+        }
