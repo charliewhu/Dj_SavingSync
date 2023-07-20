@@ -1,0 +1,7 @@
+<tr data-testid="{{ testid }}" class="hover">
+  <th></th>
+  <th>{{ item.get_source_display}}</th>
+  <td>{{ item.name }}</td>
+  <td>{{ item.amount }}</td>
+  <td>{% include 'cashflows/delete_cashflow_form.html' %}</td>
+</tr>
