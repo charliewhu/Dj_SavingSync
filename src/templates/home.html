@@ -32,7 +32,7 @@
       <!-- Incomes -->
       <tbody>
         {% for item in cashflows.incomes %}
-          <tr class="hover">
+          <tr data-testid="income-list-item" class="hover">
             <th></th>
             <th>{{ item.get_source_display}}</th>
             <td>{{ item.name }}</td>
@@ -50,7 +50,7 @@
       </thead>
       <tbody>
         {% for item in cashflows.expenses %}
-          <tr class="hover">
+          <tr data-testid="expense-list-item" class="hover">
             <th></th>
             <th>{{ item.get_source_display}}</th>
             <td>{{ item.name }}</td>
