@@ -11,8 +11,3 @@ class CashflowForm(forms.ModelForm):
             "name",
             "amount",
         ]
-        widgets = {
-            "name": forms.TextInput(
-                attrs={"class": "input input-bordered input-accent w-full max-w-xs"}
-            ),
-        }
