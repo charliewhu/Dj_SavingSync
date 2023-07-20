@@ -60,7 +60,6 @@ INSTALLED_APPS = [
     # local
     "src.accounts",
     "src.cashflows",
-    "src.theme",
 ]
 
 AUTH_USER_MODEL = "accounts.User"
