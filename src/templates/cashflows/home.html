@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block main %}
   
@@ -8,52 +9,79 @@
   <h2 data-testid="annual-balance">Annual Balance: £{{ cashflows.annual_balance|floatformat:2  }}</h2>
 {% endif %}
 
-<form action="{% url 'create_cashflow' %}" method="POST">
-  {% csrf_token %}
-  {{ form.as_div }}
-  <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add</button>
-</form>
 
-{% if cashflows %}
+<div class="container m-5 w-full">
+  <form action="{% url 'create_cashflow' %}" method="POST">
+    {% csrf_token %}
 
-  <div class="overflow-x-auto h-96">
-    <table id="income-list" class="table table-pin-rows">
-      <!-- head -->
-      <thead>
-        <tr>
-          <th>Incomes</th>
-          <th>Source</th>
-          <th>Name</th>
-          <th>Amount (£)</th>
-          <th>Action</th>
-        </tr>
-      </thead>
+    <div class="grid grid-cols-2 mb-4">
+      <div class="form-control align-middle w-1/2 mb-2">
+        <label for="id_source">Type</label>
+        {% render_field form.type class+="select select-bordered w-full max-w-xs" %}
+      </div>
+      <div class="form-control w-1/2 mb-2">
+        <label for="id_source">Source</label>
+        {% render_field form.source class+="select select-bordered w-full max-w-xs" %}
+      </div>
+      <div class="form-control w-1/2 mb-2">
+        <label for="id_name">Name</label>
+        {% render_field form.name class+="input input-bordered w-full max-w-xs" %}
+      </div>
+      <div class="form-control w-1/2 mb-2">
+        <label for="id_amount">Amount</label>
+        {% render_field form.amount class+="input input-bordered w-full max-w-xs" %}
+      </div>
+    </div>
+    <div class="w-1/3">
+      <button type="submit" class="btn btn-primary">
+        Add
+      </button>
+    </div>
+  </form>
+</div>
 
-      <!-- Incomes -->
-      <tbody>
-        {% for item in cashflows.incomes %}
-          {% include "cashflows/list-item.html" with testid="income-list-item" %}
-        {% endfor %}
-      </tbody>
 
-      <!-- Expenses -->
-      <thead>
-        <tr>
-          <th>Expenses</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for item in cashflows.expenses %}
-          {% include "cashflows/list-item.html" with testid="expense-list-item" %}
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-    
-
-{% else %}
-  <p>No items yet</p>
-{% endif %}
+<div class="container m-5 text-center">
+  {% if cashflows %}
+  
+    <div class="overflow-x-auto h-96">
+      <table id="income-list" class="table table-pin-rows">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th>Incomes</th>
+            <th>Source</th>
+            <th>Name</th>
+            <th>Amount (£)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+  
+        <!-- Incomes -->
+        <tbody>
+          {% for item in cashflows.incomes %}
+            {% include "cashflows/list-item.html" with testid="income-list-item" %}
+          {% endfor %}
+        </tbody>
+  
+        <!-- Expenses -->
+        <thead>
+          <tr>
+            <th>Expenses</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cashflows.expenses %}
+            {% include "cashflows/list-item.html" with testid="expense-list-item" %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  
+  {% else %}
+    <p>No items yet</p>
+  {% endif %}
+</div>
   
 
 {% endblock main %}
