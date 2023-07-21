@@ -17,11 +17,23 @@ class Cashflow(models.Model):
         ("savings", "Savings"),
     ]
 
-    type = models.CharField(max_length=10, choices=TYPE_CHOICES)
-    source = models.CharField(max_length=20, choices=SOURCE_CHOICES)
-    name = models.CharField(max_length=30)
+    type = models.CharField(
+        max_length=10,
+        choices=TYPE_CHOICES,
+        blank=False,
+        default=None,
+    )
+    source = models.CharField(
+        max_length=20,
+        choices=SOURCE_CHOICES,
+    )
+    name = models.CharField(
+        max_length=30,
+    )
     amount = models.DecimalField(
-        max_digits=9, decimal_places=2, validators=[MinValueValidator(0)]
+        max_digits=9,
+        decimal_places=2,
+        validators=[MinValueValidator(0)],
     )
 
     objects = CashflowQuerySet.as_manager()
