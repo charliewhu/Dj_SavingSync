@@ -18,6 +18,7 @@ playwright = "^1.31.1"
 pytest-playwright = "^0.3.2"
 django-debug-toolbar = "^4.1.0"
 django-browser-reload = "^1.11.0"
+django-widget-tweaks = "^1.4.12"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"

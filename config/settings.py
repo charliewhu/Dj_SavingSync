@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     # 3rd party
     "debug_toolbar",
     "django_browser_reload",
+    "widget_tweaks",
     # local
     "src.accounts",
     "src.cashflows",
