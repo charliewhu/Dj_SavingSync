@@ -20,8 +20,6 @@ class Cashflow(models.Model):
     type = models.CharField(
         max_length=10,
         choices=TYPE_CHOICES,
-        blank=False,
-        default=None,
     )
     source = models.CharField(
         max_length=20,
