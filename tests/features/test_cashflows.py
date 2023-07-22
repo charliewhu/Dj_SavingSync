@@ -84,7 +84,7 @@ class TestCashflows(BasePlaywrightTestCase):
     def test_milestones(self):
         """
         Given I have an existing Income Cashflow of 200
-        And I have and existing Expense Cashflow of 100
+        And I have an existing Expense Cashflow of 100
         And I am on the home page
         Then I should see a monthly balance of 100
         And I should see a biannual balance of 600
@@ -99,7 +99,33 @@ class TestCashflows(BasePlaywrightTestCase):
         expect(self.page.get_by_test_id("biannual-balance")).to_contain_text("600")
         expect(self.page.get_by_test_id("annual-balance")).to_contain_text("1200")
 
+    def test_percentages(self):
+        """
+        Given I have an existing Income Cashflow of 100
+        And I have an existing Need Cashflow of 40
+        And I have an existing Want Cashflow of 10
+        And I have an existing Savings Cashflow of 5
+        And I am on the home page
+        Then I should see a Needs percentage of 40%
+        And I should see a Wants percentage of 10%
+        And I should see a Savings percentage of 5%
+        """
+        baker.make(Cashflow, type="income", amount=100)
+        baker.make(Cashflow, type="need", amount=40)
+        baker.make(Cashflow, type="want", amount=10)
+        baker.make(Cashflow, type="saving", amount=5)
+        self.page.goto(f"{self.live_server_url}/")
 
-# TODO: Model: Add categories Needs / Wants / Savings to Cashflow
+        expect(self.page.get_by_test_id("expense-percentages")).to_contain_text(
+            "Needs: 40%"
+        )
+        expect(self.page.get_by_test_id("expense-percentages")).to_contain_text(
+            "Wants: 10%"
+        )
+        expect(self.page.get_by_test_id("expense-percentages")).to_contain_text(
+            "Savings: 5%"
+        )
+
+
 # TODO: Model: add Irregular Expense as Cashflow source
 # TODO: Feature: cashflows can be active/inactive ?
