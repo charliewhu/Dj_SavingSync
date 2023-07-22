@@ -47,7 +47,7 @@ class TestCashflows(BasePlaywrightTestCase):
             income_item["amount"]
         )
 
-        self.page.locator('select[name="type"]').select_option(label="Expense")
+        self.page.locator('select[name="type"]').select_option(label="Need")
         self.page.locator('select[name="source"]').select_option(label="Regular Bill")
         self.page.locator('input[name="name"]').fill(expense_item["name"])
         self.page.locator('input[name="amount"]').fill(expense_item["amount"])
@@ -92,7 +92,7 @@ class TestCashflows(BasePlaywrightTestCase):
         """
 
         baker.make(Cashflow, type="income", amount=200)
-        baker.make(Cashflow, type="expense", amount=100)
+        baker.make(Cashflow, type="need", amount=100)
         self.page.goto(f"{self.live_server_url}/")
 
         expect(self.page.get_by_test_id("monthly-balance")).to_contain_text("100")
@@ -101,7 +101,5 @@ class TestCashflows(BasePlaywrightTestCase):
 
 
 # TODO: Model: Add categories Needs / Wants / Savings to Cashflow
-# TODO: UI/UX: Salary/Income could be radio buttons
 # TODO: Model: add Irregular Expense as Cashflow source
 # TODO: Feature: cashflows can be active/inactive ?
-# <!-- {% include "cashflow-list-item.html" with id="income-list-item" %} -->
