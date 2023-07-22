@@ -10,10 +10,12 @@ from .models import Cashflow
 def home(request: HttpRequest):
     form = CashflowForm()
     cashflows = Cashflow.objects.all().order_by("-amount")
+    cashflow_percentages = cashflows.expense_percentages()  # type: ignore
 
     context = {
         "form": form,
         "cashflows": cashflows,
+        "cashflow_percentages": cashflow_percentages,
     }
 
     return render(

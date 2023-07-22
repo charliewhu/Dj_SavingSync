@@ -9,6 +9,13 @@
   <h2 data-testid="annual-balance">Annual Balance: £{{ cashflows.annual_balance|floatformat:2  }}</h2>
 {% endif %}
 
+{% if cashflows %}
+  <ul data-testid="expense-percentages">
+    <li>Needs: {{ cashflow_percentages.needs|floatformat:0  }}%</li>
+    <li>Wants: {{ cashflow_percentages.wants|floatformat:0  }}%</li>
+    <li>Savings: {{ cashflow_percentages.savings|floatformat:0  }}%</li>
+  </ul>
+{% endif %}
 
 <div class="container w-full">
   <form action="{% url 'create_cashflow' %}" method="POST" class="my-6">
