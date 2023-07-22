@@ -10,7 +10,7 @@ class Cashflow(models.Model):
         ("income", "Income"),
         ("need", "Need"),
         ("want", "Want"),
-        ("savings", "Savings"),
+        ("saving", "Saving"),
     ]
 
     SOURCE_CHOICES = [
