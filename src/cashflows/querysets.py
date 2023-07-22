@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.functional import cached_property
 
-from django.db.models import Sum
+from django.db.models import Sum, Q
 
 
 class CashflowQuerySet(models.QuerySet):
@@ -11,7 +11,7 @@ class CashflowQuerySet(models.QuerySet):
 
     @cached_property
     def expenses(self):
-        return self.filter(type="expense")
+        return self.filter(Q(type="need") | Q(type="want") | Q(type="saving"))
 
     @cached_property
     def monthly_balance(self):
