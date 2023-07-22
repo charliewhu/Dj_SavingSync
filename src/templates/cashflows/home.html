@@ -10,24 +10,24 @@
 {% endif %}
 
 
-<div class="container m-5 w-full">
-  <form action="{% url 'create_cashflow' %}" method="POST">
+<div class="container w-full">
+  <form action="{% url 'create_cashflow' %}" method="POST" class="my-6">
     {% csrf_token %}
 
-    <div class="grid grid-cols-2 mb-4">
-      <div class="form-control align-middle w-1/2 mb-2">
+    <div class="grid grid-cols-2 gap-4  mb-4">
+      <div class="form-control w-full">
         <label for="id_source">Type</label>
         {% render_field form.type class+="select select-bordered w-full max-w-xs" %}
       </div>
-      <div class="form-control w-1/2 mb-2">
+      <div class="form-control w-full">
         <label for="id_source">Source</label>
         {% render_field form.source class+="select select-bordered w-full max-w-xs" %}
       </div>
-      <div class="form-control w-1/2 mb-2">
+      <div class="form-control w-full">
         <label for="id_name">Name</label>
         {% render_field form.name class+="input input-bordered w-full max-w-xs" %}
       </div>
-      <div class="form-control w-1/2 mb-2">
+      <div class="form-control w-full">
         <label for="id_amount">Amount</label>
         {% render_field form.amount class+="input input-bordered w-full max-w-xs" %}
       </div>
