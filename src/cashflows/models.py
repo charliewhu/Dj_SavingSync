@@ -8,7 +8,9 @@ from .querysets import CashflowQuerySet
 class Cashflow(models.Model):
     TYPE_CHOICES = [
         ("income", "Income"),
-        ("expense", "Expense"),
+        ("need", "Need"),
+        ("want", "Want"),
+        ("savings", "Savings"),
     ]
 
     SOURCE_CHOICES = [
