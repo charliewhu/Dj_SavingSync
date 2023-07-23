@@ -2,22 +2,25 @@
 {% load widget_tweaks %}
 
 {% block main %}
-  
+
+<!-- High-level stats -->
 {% if cashflows %}
-  <h2 data-testid="monthly-balance">Monthly Balance: £{{ cashflows.monthly_balance|floatformat:2  }}</h2>
-  <h2 data-testid="biannual-balance">Biannual Balance: £{{ cashflows.biannual_balance|floatformat:2  }}</h2>
-  <h2 data-testid="annual-balance">Annual Balance: £{{ cashflows.annual_balance|floatformat:2  }}</h2>
+  <div class="grid grid-cols-2 gap-4  my-8">
+    <ul>
+      <li data-testid="monthly-balance">Monthly Balance: £{{ cashflows.monthly_balance|floatformat:2  }}</li>
+      <li data-testid="biannual-balance">Biannual Balance: £{{ cashflows.biannual_balance|floatformat:2  }}</li>
+      <li data-testid="annual-balance">Annual Balance: £{{ cashflows.annual_balance|floatformat:2  }}</li>
+    </ul>
+    <ul data-testid="expense-percentages">
+      <li>Needs: {{ cashflow_percentages.needs|floatformat:0  }}%</li>
+      <li>Wants: {{ cashflow_percentages.wants|floatformat:0  }}%</li>
+      <li>Savings: {{ cashflow_percentages.savings|floatformat:0  }}%</li>
+    </ul>
+  </div>
 {% endif %}
 
-{% if cashflows %}
-  <ul data-testid="expense-percentages">
-    <li>Needs: {{ cashflow_percentages.needs|floatformat:0  }}%</li>
-    <li>Wants: {{ cashflow_percentages.wants|floatformat:0  }}%</li>
-    <li>Savings: {{ cashflow_percentages.savings|floatformat:0  }}%</li>
-  </ul>
-{% endif %}
-
-<div class="container w-full">
+<!-- Create Cashflow form -->
+<div class="container w-full my-8">
   <form action="{% url 'create_cashflow' %}" method="POST" class="my-6">
     {% csrf_token %}
 
@@ -48,7 +51,8 @@
 </div>
 
 
-<div class="container m-5 text-center">
+<!-- Cashflows table -->
+<div class="container text-center">
   {% if cashflows %}
   
     <div class="overflow-x-auto h-96">
