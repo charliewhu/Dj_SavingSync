@@ -16,6 +16,7 @@ class Cashflow(models.Model):
     SOURCE_CHOICES = [
         ("salary", "Salary"),
         ("regular_bill", "Regular Bill"),
+        ("irregular_bill", "Irregular Bill"),
         ("savings", "Savings"),
     ]
 
@@ -37,3 +38,6 @@ class Cashflow(models.Model):
     )
 
     objects = CashflowQuerySet.as_manager()
+
+    def __str__(self) -> str:
+        return f"{self.name}"
