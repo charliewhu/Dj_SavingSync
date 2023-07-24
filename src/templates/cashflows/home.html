@@ -20,14 +20,13 @@
 {% endif %}
 
 
-<div>
-
+<div class="md:flex">
   <!-- Create Cashflow form -->
-  <div class="container w-full my-8">
-    <form action="{% url 'create_cashflow' %}" method="POST" class="my-6">
+  <div class="container w-full my-8 md:my-0 md:mr-10">
+    <form action="{% url 'create_cashflow' %}" method="POST" class="my-6 md:my-0">
       {% csrf_token %}
   
-      <div class="grid grid-cols-2 gap-4  mb-4">
+      <div class="grid grid-cols-2 gap-4 mb-4">
         <div class="form-control w-full">
           <label for="id_source">Type</label>
           {% render_field form.type class+="select select-bordered w-full max-w-xs" %}
@@ -62,9 +61,9 @@
           <!-- head -->
           <thead>
             <tr>
-              <th class="max-md:hidden">Incomes</th>
+              <th>Incomes</th>
               <th class="max-md:hidden">Source</th>
-              <th>Name</th>
+              <th class="max-md:hidden">Name</th>
               <th>Amount (£)</th>
               <th>Action</th>
             </tr>
@@ -80,7 +79,7 @@
           <!-- Expenses -->
           <thead>
             <tr>
-              <th class="max-md:hidden">Expenses</th>
+              <th>Expenses</th>
             </tr>
           </thead>
           <tbody>
