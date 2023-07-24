@@ -19,78 +19,82 @@
   </div>
 {% endif %}
 
-<!-- Create Cashflow form -->
-<div class="container w-full my-8">
-  <form action="{% url 'create_cashflow' %}" method="POST" class="my-6">
-    {% csrf_token %}
 
-    <div class="grid grid-cols-2 gap-4  mb-4">
-      <div class="form-control w-full">
-        <label for="id_source">Type</label>
-        {% render_field form.type class+="select select-bordered w-full max-w-xs" %}
-      </div>
-      <div class="form-control w-full">
-        <label for="id_source">Source</label>
-        {% render_field form.source class+="select select-bordered w-full max-w-xs" %}
-      </div>
-      <div class="form-control w-full">
-        <label for="id_name">Name</label>
-        {% render_field form.name class+="input input-bordered w-full max-w-xs" %}
-      </div>
-      <div class="form-control w-full">
-        <label for="id_amount">Amount</label>
-        {% render_field form.amount class+="input input-bordered w-full max-w-xs" %}
-      </div>
-    </div>
-    <div class="w-1/3">
-      <button type="submit" class="btn btn-outline btn-primary">
-        Add
-      </button>
-    </div>
-  </form>
-</div>
+<div>
 
-<!-- Cashflows table -->
-<div class="container text-center">
-  {% if cashflows %}
+  <!-- Create Cashflow form -->
+  <div class="container w-full my-8">
+    <form action="{% url 'create_cashflow' %}" method="POST" class="my-6">
+      {% csrf_token %}
   
-    <div class="overflow-x-auto h-96">
-      <table id="income-list" class="table table-pin-rows">
-        <!-- head -->
-        <thead>
-          <tr>
-            <th class="max-md:hidden">Incomes</th>
-            <th class="max-md:hidden">Source</th>
-            <th>Name</th>
-            <th>Amount (£)</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+      <div class="grid grid-cols-2 gap-4  mb-4">
+        <div class="form-control w-full">
+          <label for="id_source">Type</label>
+          {% render_field form.type class+="select select-bordered w-full max-w-xs" %}
+        </div>
+        <div class="form-control w-full">
+          <label for="id_source">Source</label>
+          {% render_field form.source class+="select select-bordered w-full max-w-xs" %}
+        </div>
+        <div class="form-control w-full">
+          <label for="id_name">Name</label>
+          {% render_field form.name class+="input input-bordered w-full max-w-xs" %}
+        </div>
+        <div class="form-control w-full">
+          <label for="id_amount">Amount</label>
+          {% render_field form.amount class+="input input-bordered w-full max-w-xs" %}
+        </div>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-outline btn-primary w-full md:w-1/5">
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
   
-        <!-- Incomes -->
-        <tbody>
-          {% for item in cashflows.incomes %}
-            {% include "cashflows/list-item.html" with testid="income-list-item" %}
-          {% endfor %}
-        </tbody>
+  <!-- Cashflows table -->
+  <div class="container text-center">
+    {% if cashflows %}
   
-        <!-- Expenses -->
-        <thead>
-          <tr>
-            <th class="max-md:hidden">Expenses</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in cashflows.expenses %}
-            {% include "cashflows/list-item.html" with testid="expense-list-item" %}
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
+      <div class="overflow-x-auto h-96">
+        <table id="income-list" class="table table-pin-rows">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th class="max-md:hidden">Incomes</th>
+              <th class="max-md:hidden">Source</th>
+              <th>Name</th>
+              <th>Amount (£)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
   
-  {% else %}
-    <p>No items yet</p>
-  {% endif %}
+          <!-- Incomes -->
+          <tbody>
+            {% for item in cashflows.incomes %}
+              {% include "cashflows/list-item.html" with testid="income-list-item" %}
+            {% endfor %}
+          </tbody>
+  
+          <!-- Expenses -->
+          <thead>
+            <tr>
+              <th class="max-md:hidden">Expenses</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in cashflows.expenses %}
+              {% include "cashflows/list-item.html" with testid="expense-list-item" %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  
+    {% else %}
+      <p>No items yet</p>
+    {% endif %}
+  </div>
 </div>
   
 
